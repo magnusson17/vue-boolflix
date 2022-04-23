@@ -5,15 +5,21 @@
         </div>
 
         <div>
-            <input type="text">
-            <button>cerca</button>
+            <input type="text" v-model="query">
+            <button @click="$emit('queryFun', query)">cerca</button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HeaderComp'
+    name: 'HeaderComp',
+    
+    data() {
+        return {
+            query: ''
+        }
+    },
 }
 </script>
 
