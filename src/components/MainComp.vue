@@ -9,7 +9,7 @@
             <div v-if='element.original_language == "en" '>
                 <img src="../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
             </div>
-            <div v-if='element.original_language == "ja" '>
+            <div v-else-if='element.original_language == "ja" '>
                 japooooo
             </div>
             <div v-else>
