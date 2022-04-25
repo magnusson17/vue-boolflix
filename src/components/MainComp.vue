@@ -10,7 +10,10 @@
                 <img src="../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
             </div>
             <div v-else-if='element.original_language == "ja" '>
-                japooooo
+                <img src="../assets/img/Flag_of_Japan.svg" alt="jp" class="lang_img">
+            </div>
+            <div v-else-if='element.original_language == "it" '>
+                <img src="../assets/img/Flag_of_Italy.svg" alt="it" class="lang_img">
             </div>
             <div v-else>
                 {{element.original_language}}
@@ -58,5 +61,6 @@ export default {
 <style scoped lang="scss">
 .lang_img {
     height: 10px;
+    width: 18px;
 }
 </style>
