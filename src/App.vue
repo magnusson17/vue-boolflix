@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <HeaderComp
-      @queryFun="queryFun"/>
-    <MainComp/>
+      @queryFunSon="queryFunDad"/>
+    <MainComp
+      :queryFunSecondSon="saveApiInArray"/>
   </div>
 </template>
 
@@ -22,23 +23,23 @@ export default {
   data() {
     return {
       apiKey: '8394997a63098bf1d50381cfa5bc4c64',
-      query: '',
+      queryDad: 'rick',
       saveApiInArray: [],
     }
   },
 
   created() {
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=en-US&page=1&include_adult=false`).then( (res) => {
-      console.log(res.data);
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=en-US&query=${this.queryDad}&page=1&include_adult=false`).then( (res) => {
+      console.log(res);
       this.saveApiInArray = res.data.results;
     })
   },
 
   methods: {
-    queryFun(query) {
-      this.query = query;
-      console.log(this.query);
-    }
+    queryFunDad(query) {
+      this.queryDad = query;
+      console.log(this.queryDad);
+    },
   }
 }
 </script>

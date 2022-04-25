@@ -5,8 +5,8 @@
         </div>
 
         <div>
-            <input type="text" v-model="query">
-            <button @click="$emit('queryFun', query)">cerca</button>
+            <input type="text" v-model="querySon">
+            <button @click="$emit('queryFunSon', querySon)">cerca</button>
         </div>
     </div>
 </template>
@@ -17,7 +17,7 @@ export default {
     
     data() {
         return {
-            query: ''
+            querySon: ''
         }
     },
 }
