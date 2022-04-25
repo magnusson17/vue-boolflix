@@ -2,8 +2,10 @@
   <div id="app">
     <HeaderComp
       @queryFunSon="queryFunDad"/>
+      <!-- :querySaveArrayMoviesSecondSon="saveApiArrayMovies"
+      :querySaveArraySeriesSecondSon="saveApiArraySeries"/> -->
     <MainComp
-      :queryFunSecondSon="saveApiInArray"/>
+      :arrayConcatFromDadToSon="arrayConcat"/>
   </div>
 </template>
 
@@ -24,15 +26,25 @@ export default {
     return {
       apiKey: '8394997a63098bf1d50381cfa5bc4c64',
       queryDad: 'rick',
-      saveApiInArray: [],
+      saveApiArrayMovies: [],
+      saveApiArraySeries: [],
+      arrayConcat: []
     }
   },
 
   created() {
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=en-US&query=${this.queryDad}&page=1&include_adult=false`).then( (res) => {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=it_IT&query=${this.queryDad}`).then( (res) => {
       console.log(res);
-      this.saveApiInArray = res.data.results;
-    })
+      this.saveApiArrayMovies = res.data.results;
+    }),
+
+    axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&language=it_IT&query=${this.queryDad}`).then( (res) => {
+      console.log(res);
+      this.saveApiArraySeries = res.data.results;
+    }),
+
+    this.arrayConcat = this.saveApiArrayMovies.concat(this.saveApiArraySeries);
+    console.log("array concat:" + this.arrayConcat + this.queryDad);
   },
 
   methods: {
