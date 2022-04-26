@@ -1,7 +1,9 @@
 <template>
     <div>
         <h2>film</h2>
-        <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
+        <div class="d-flex flex-wrap">
+            <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
+        </div>
 
         <h2>serie</h2>
         <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>

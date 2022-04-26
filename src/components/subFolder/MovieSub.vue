@@ -1,13 +1,13 @@
 <template>
     <div 
-    class="p-3" 
+    class="p-3 w_342 h_513 d-flex" 
     @mouseover="hoverFun(true)" 
     @mouseleave="hoverFun(false)"> 
         <div :class="(hover == true) ? 'd-none' : 'd-block' ">
-            <img :src='`https://image.tmdb.org/t/p/w500${film.backdrop_path}`' alt="copertina">
+            <img :src='`https://image.tmdb.org/t/p/w342${film.poster_path}`' alt="copertina">
         </div>
 
-        <div :class="(hover == true) ? 'd-block' : 'd-none' ">
+        <div class="h-100 p-3" :class="(hover == true) ? 'd-block' : 'd-none' ">
             <div>{{film.title}}</div>
             <div>{{film.original_title}}</div>
             <div v-if='film.original_language == "en" '>
@@ -53,7 +53,12 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
             </div>
-
+            
+            <div>
+                <p>
+                   {{film.overview}} 
+                </p> 
+            </div>
         </div>
     </div>
 </template>
@@ -83,5 +88,13 @@ export default {
 .lang_img {
     height: 10px;
     width: 18px;
+}
+
+.w_342 {
+    width: 342px;
+}
+
+.h_513 {
+    height: 513px;
 }
 </style>
