@@ -4,7 +4,7 @@
     @mouseover="hoverFun(true)" 
     @mouseleave="hoverFun(false)"> 
         <div :class="(hover == true) ? 'd-none' : 'd-block' ">
-            <img :src='`https://image.tmdb.org/t/p/w200${film.backdrop_path}`' alt="copertina">
+            <img :src='`https://image.tmdb.org/t/p/w500${film.backdrop_path}`' alt="copertina">
         </div>
 
         <div :class="(hover == true) ? 'd-block' : 'd-none' ">
@@ -22,7 +22,38 @@
             <div v-else>
                 {{film.original_language}}
             </div>
-            <div>{{film.vote_average}}<i class="fa-solid fa-star"></i></div> 
+
+            <div v-if="(film.vote_average == 0) && (film.vote_average <= 2)">
+                {{film.vote_average}}
+                <i class="fa-solid fa-star"></i>
+            </div> 
+            <div v-else-if="(film.vote_average > 2) && (film.vote_average <= 4)">
+                {{film.vote_average}}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div v-else-if="(film.vote_average > 4) && (film.vote_average <= 6)">
+                {{film.vote_average}}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div v-else-if="(film.vote_average > 6) && (film.vote_average <= 8)">
+                {{film.vote_average}}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div v-else-if="(film.vote_average > 8) && (film.vote_average <= 10)">
+                {{film.vote_average}}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+
         </div>
     </div>
 </template>
