@@ -1,53 +1,26 @@
 <template>
     <div>
-        <div 
-        v-for="(element, index) in arrayConcatFromDadToSon" 
-        :key="index"
-        class="p-3">
-            <div>{{element.title}} {{element.name}}</div>
-            <div>{{element.original_title}} {{element.original_name}}</div>
-            <div v-if='element.original_language == "en" '>
-                <img src="../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
-            </div>
-            <div v-else-if='element.original_language == "ja" '>
-                <img src="../assets/img/Flag_of_Japan.svg" alt="jp" class="lang_img">
-            </div>
-            <div v-else-if='element.original_language == "it" '>
-                <img src="../assets/img/Flag_of_Italy.svg" alt="it" class="lang_img">
-            </div>
-            <div v-else>
-                {{element.original_language}}
-            </div>
-            <div>{{element.vote_average}}</div> 
-        </div>
+        <h2>film</h2>
+        <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
 
-        <!-- <div
-        v-for="(element, index) in querySaveArraySeriesSecondSon" 
-        :key="index"
-        class="p-3">
-            <div>{{element.name}}</div>
-            <div>{{element.original_name}}</div>
-            <div v-if='element.original_language == "en" '>
-                <img src="../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
-            </div>
-            <div v-if='element.original_language == "ja" '>
-                japooooo
-            </div>
-            <div v-else>
-                {{element.original_language}}
-            </div>
-            <div>{{element.vote_average}}</div> 
-        </div> -->
+        <h2>serie</h2>
+        <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>
     </div>
 </template>
 
 <script>
+import MovieSub from './subFolder/MovieSub.vue';
+import SerieSub from './subFolder/SerieSub.vue';
+
 export default {
     name: 'MainComp',
     props: {
-        // querySaveArrayMoviesSecondSon: Array,
-        // querySaveArraySeriesSecondSon: Array,
-        arrayConcatFromDadToSon: Array,
+        querySaveArrayMovies: Array,
+        querySaveArraySeries: Array,
+    },
+    components: {
+        MovieSub,
+        SerieSub,
     },
     
     data() {
@@ -59,8 +32,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.lang_img {
-    height: 10px;
-    width: 18px;
+div {
+    h2 {
+        text-transform: uppercase;
+    }
 }
 </style>

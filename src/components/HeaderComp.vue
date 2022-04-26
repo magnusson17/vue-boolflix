@@ -5,8 +5,9 @@
         </div>
 
         <div>
+            <!--  @keydown.enter.prevent="$emit('queryFunSon', querySon)" -->
             <input type="text" v-model="querySon">
-            <button @click="$emit('queryFunSon', querySon)">cerca</button>
+            <button @click.prevent="$emit('queryFunSon', querySon)">cerca</button>
         </div>
     </div>
 </template>

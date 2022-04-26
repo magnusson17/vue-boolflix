@@ -2,10 +2,10 @@
   <div id="app">
     <HeaderComp
       @queryFunSon="queryFunDad"/>
-      <!-- :querySaveArrayMoviesSecondSon="saveApiArrayMovies"
-      :querySaveArraySeriesSecondSon="saveApiArraySeries"/> -->
+      <!-- :arrayConcatFromDadToSon="arrayConcat"/> -->
     <MainComp
-      :arrayConcatFromDadToSon="arrayConcat"/>
+      :querySaveArrayMovies="saveApiArrayMovies"
+      :querySaveArraySeries="saveApiArraySeries"/>
   </div>
 </template>
 
@@ -25,34 +25,36 @@ export default {
   data() {
     return {
       apiKey: '8394997a63098bf1d50381cfa5bc4c64',
-      queryDad: 'rick',
+      // queryDad: 'stella',
       saveApiArrayMovies: [],
       saveApiArraySeries: [],
-      arrayConcat: []
+      // arrayConcat: []
     }
-  },
-
-  created() {
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=it_IT&query=${this.queryDad}`).then( (res) => {
-      console.log(res);
-      this.saveApiArrayMovies = res.data.results;
-    }),
-
-    axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&language=it_IT&query=${this.queryDad}`).then( (res) => {
-      console.log(res);
-      this.saveApiArraySeries = res.data.results;
-      
-      this.arrayConcat = this.saveApiArrayMovies.concat(this.saveApiArraySeries);
-      console.log("array concat:" + this.arrayConcat + this.queryDad);
-    })
   },
 
   methods: {
     queryFunDad(query) {
-      this.queryDad = query;
-      console.log(this.queryDad);
-    },
-  }
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=it_IT&query=${query}`).then( (res) => {
+        console.log(res);
+        this.saveApiArrayMovies = res.data.results;
+      }),
+  
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&language=it_IT&query=${query}`).then( (res) => {
+        console.log(res);
+        this.saveApiArraySeries = res.data.results;
+        
+        // this.arrayConcat = this.saveApiArrayMovies.concat(this.saveApiArraySeries);
+        // console.log("array concat:" + this.arrayConcat + this.queryDad);
+      })
+    }
+  },
+
+  // methods: {
+  //   queryFunDad(query) {
+  //     this.queryDad = query;
+  //     console.log(this.queryDad);
+  //   },
+  // }
 }
 </script>
 
