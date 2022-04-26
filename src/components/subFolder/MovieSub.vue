@@ -1,13 +1,13 @@
 <template>
     <div 
-    class="p-3 w_342 h_513 d-flex" 
+    class="p-3 m-3 w_342 h_513 d-flex" 
     @mouseover="hoverFun(true)" 
     @mouseleave="hoverFun(false)"> 
         <div :class="(hover == true) ? 'd-none' : 'd-block' ">
             <img :src='`https://image.tmdb.org/t/p/w342${film.poster_path}`' alt="copertina">
         </div>
 
-        <div class="h-100 p-3" :class="(hover == true) ? 'd-block' : 'd-none' ">
+        <div class="h-100 p-3 overflow_auto" :class="(hover == true) ? 'd-block' : 'd-none' ">
             <div>{{film.title}}</div>
             <div>{{film.original_title}}</div>
             <div v-if='film.original_language == "en" '>
@@ -56,7 +56,7 @@
             
             <div>
                 <p>
-                   {{film.overview}} 
+                   {{film.overview}}
                 </p> 
             </div>
         </div>
@@ -72,7 +72,7 @@ export default {
     
     data() {
         return {
-            hover: true,
+            hover: false,
         }
     },
 
@@ -96,5 +96,9 @@ export default {
 
 .h_513 {
     height: 513px;
+}
+
+.overflow_auto {
+    overflow: auto;
 }
 </style>
