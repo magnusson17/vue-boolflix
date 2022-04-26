@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg_222222">
     <HeaderComp
+    class="bg-black"
       @queryFunSon="queryFunDad"/>
       <!-- :arrayConcatFromDadToSon="arrayConcat"/> -->
     <MainComp
@@ -60,5 +61,7 @@ export default {
 
 <style lang="scss">
 @import "bootstrap/dist/css/bootstrap.min.css";
-
+.bg_222222 {
+  background-color: #222222;
+}
 </style>

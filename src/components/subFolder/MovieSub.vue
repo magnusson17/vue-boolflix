@@ -4,7 +4,7 @@
     @mouseover="hoverFun(true)" 
     @mouseleave="hoverFun(false)"> 
         <div :class="(hover == true) ? 'd-none' : 'd-block' ">
-            <img :src='`https://image.tmdb.org/t/p/w342${film.poster_path}`' alt="copertina">
+            <img class="w_342 h_513" :src='`https://image.tmdb.org/t/p/w342${film.poster_path}`' alt="copertina">
         </div>
 
         <div class="h-100 p-3 overflow_auto" :class="(hover == true) ? 'd-block' : 'd-none' ">
