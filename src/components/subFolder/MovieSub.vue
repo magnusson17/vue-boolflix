@@ -1,20 +1,29 @@
 <template>
-    <div class="p-3"> 
-        <div>{{film.title}}</div>
-        <div>{{film.original_title}}</div>
-        <div v-if='film.original_language == "en" '>
-            <img src="../../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
+    <div 
+    class="p-3" 
+    @mouseover="hoverFun(true)" 
+    @mouseleave="hoverFun(false)"> 
+        <div :class="(hover == true) ? 'd-none' : 'd-block' ">
+            <img :src='`https://image.tmdb.org/t/p/w200${film.backdrop_path}`' alt="copertina">
         </div>
-        <div v-else-if='film.original_language == "it" '>
-            <img src="../../assets/img/Flag_of_Italy.svg" alt="it" class="lang_img">
+
+        <div :class="(hover == true) ? 'd-block' : 'd-none' ">
+            <div>{{film.title}}</div>
+            <div>{{film.original_title}}</div>
+            <div v-if='film.original_language == "en" '>
+                <img src="../../assets/img/Flag_of_the_United_Kingdom.svg" alt="en" class="lang_img">
+            </div>
+            <div v-else-if='film.original_language == "it" '>
+                <img src="../../assets/img/Flag_of_Italy.svg" alt="it" class="lang_img">
+            </div>
+            <div v-else-if='film.original_language == "ja" '>
+                <img src="../../assets/img/Flag_of_Japan.svg" alt="jp" class="lang_img">
+            </div>
+            <div v-else>
+                {{film.original_language}}
+            </div>
+            <div>{{film.vote_average}}<i class="fa-solid fa-star"></i></div> 
         </div>
-        <div v-else-if='film.original_language == "ja" '>
-            <img src="../../assets/img/Flag_of_Japan.svg" alt="jp" class="lang_img">
-        </div>
-        <div v-else>
-            {{film.original_language}}
-        </div>
-        <div>{{film.vote_average}}</div> 
     </div>
 </template>
 
@@ -27,9 +36,15 @@ export default {
     
     data() {
         return {
-
+            hover: true,
         }
     },
+
+    methods: {
+        hoverFun(h) {
+            this.hover = h;
+        }
+    }
 }
 </script>
 
