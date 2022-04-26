@@ -1,10 +1,11 @@
 <template>
-  <div id="app" class="bg_222222">
+  <div id="app" class="bg_222222 h_100vh">
     <HeaderComp
     class="bg-black"
       @queryFunSon="queryFunDad"/>
       <!-- :arrayConcatFromDadToSon="arrayConcat"/> -->
     <MainComp
+    class="bg_222222"
       :querySaveArrayMovies="saveApiArrayMovies"
       :querySaveArraySeries="saveApiArraySeries"/>
   </div>
@@ -63,5 +64,9 @@ export default {
 @import "bootstrap/dist/css/bootstrap.min.css";
 .bg_222222 {
   background-color: #222222;
+}
+
+.h_100vh {
+  height: 100vh;
 }
 </style>
