@@ -43,19 +43,9 @@ export default {
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&language=it_IT&query=${query}`).then( (res) => {
         console.log(res);
         this.saveApiArraySeries = res.data.results;
-        
-        // this.arrayConcat = this.saveApiArrayMovies.concat(this.saveApiArraySeries);
-        // console.log("array concat:" + this.arrayConcat + this.queryDad);
       })
     }
   },
-
-  // methods: {
-  //   queryFunDad(query) {
-  //     this.queryDad = query;
-  //     console.log(this.queryDad);
-  //   },
-  // }
 }
 </script>
 
