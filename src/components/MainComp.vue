@@ -4,7 +4,7 @@
             <h2>film</h2>
         </div>
         <div class="container">
-            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-5">
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-2">
                 <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <h2>serie</h2>
         </div>
         <div class="container">
-            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-5">
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-2">
                 <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>
             </div>
         </div>
