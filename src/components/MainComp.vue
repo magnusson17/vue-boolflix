@@ -12,7 +12,11 @@
         <div class="container p-3 text-uppercase text-white">
             <h2>serie</h2>
         </div>
-        <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>
+        <div class="container">
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-5">
+                <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>
+            </div>
+        </div>
     </div>
 </template>
 

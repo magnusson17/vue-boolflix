@@ -1,8 +1,7 @@
 <template>
     <div class="d-flex justify-content-between align-items-center p-4">
         <div>
-            <h2 class="color_dc3545">Netulean</h2>
-            <!-- <img src="" alt="img"> -->
+            <h2 class="color_dc3545">Netflean</h2>
         </div>
 
         <div class="d-flex">

@@ -1,11 +1,10 @@
 <template>
   <div id="app" class="bg_222222 h_100vh">
     <HeaderComp
-    class="bg-black"
+      class="bg-black"
       @queryFunSon="queryFunDad"/>
-      <!-- :arrayConcatFromDadToSon="arrayConcat"/> -->
     <MainComp
-    class="bg_222222"
+      class="bg_222222"
       :querySaveArrayMovies="saveApiArrayMovies"
       :querySaveArraySeries="saveApiArraySeries"/>
   </div>
