@@ -1,11 +1,12 @@
 <template>
-    <div class="flip-card g-3 row row-cols-4">
-        <div class="flip-card-inner">
-            <div class="flip-card-front col">
-                <img class="img-fluid" :src='`https://image.tmdb.org/t/p/w342${film.poster_path}`' alt="copertina">              
+    <div class="flip-card">
+        <div class="flip-card-inner col text-white w-100">
+            <div 
+            class="flip-card-front card_bg"
+            :style="{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${film.poster_path})` }">
             </div>
 
-            <div class="flip-card-back col">
+            <div class="flip-card-back overflow_auto p-2">
                 
                 <div>
                     <h4>
@@ -145,6 +146,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../mixin.scss';
+
+.card_bg {
+    @include backgroundBasic(no-repeat, cover, center);
+}
+
 div {
     h6, span {
         text-transform: capitalize;
@@ -156,14 +163,6 @@ div {
     width: 20px;
 }
 
-.w_342 {
-    width: 342px;
-}
-
-.h_513 {
-    height: 513px;
-}
-
 .overflow_auto {
     overflow: auto;
 }
@@ -171,9 +170,10 @@ div {
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 400px;
-  border: 1px solid #f1f1f1;
+  // width: 100%;
+  // height: 400px;
+  aspect-ratio: 0.8;
+  // border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -182,7 +182,7 @@ div {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
+  // text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -209,7 +209,7 @@ div {
 
 /* Style the back side */
 .flip-card-back {
-  // background-color: dodgerblue;
+  // background-color: black;
   color: white;
   transform: rotateY(180deg);
 }

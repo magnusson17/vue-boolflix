@@ -1,11 +1,17 @@
 <template>
     <div>
-        <h2>film</h2>
+        <div class="container p-3 text-uppercase text-white">
+            <h2>film</h2>
+        </div>
         <div class="container">
-            <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-5">
+                <MovieSub v-for="(element, index) in querySaveArrayMovies" :key="index" :film="element"/>
+            </div>
         </div>
 
-        <h2>serie</h2>
+        <div class="container p-3 text-uppercase text-white">
+            <h2>serie</h2>
+        </div>
         <SerieSub v-for="(element, index) in querySaveArraySeries" :key="index" :serie="element"/>
     </div>
 </template>
@@ -34,9 +40,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-div {
-    h2 {
-        text-transform: uppercase;
-    }
-}
 </style>
