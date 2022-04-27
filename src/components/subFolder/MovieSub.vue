@@ -35,31 +35,16 @@
                 {{film.original_language}}
             </div>
 
-            <!-- {{film.vote_average}} -->
-            <div v-if="(film.vote_average == 0) && (film.vote_average <= 2)">
-                <i class="fa-solid fa-star"></i>
-            </div> 
-            <div v-else-if="(film.vote_average > 2) && (film.vote_average <= 4)">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-            </div>
-            <div v-else-if="(film.vote_average > 4) && (film.vote_average <= 6)">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-            </div>
-            <div v-else-if="(film.vote_average > 6) && (film.vote_average <= 8)">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-            </div>
-            <div v-else-if="(film.vote_average > 8) && (film.vote_average <= 10)">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+            <div>
+                <p>
+                   {{film.vote_average}}
+                   <i 
+                   class="fa-star" 
+                   v-for="i in 5" 
+                   :key="i" 
+                   :class="(i <= starsFun() ? 'fa-solid' : 'fa-regular')">
+                   </i> 
+                </p>
             </div>
             
             <div>
@@ -87,6 +72,11 @@ export default {
     methods: {
         hoverFun(h) {
             this.hover = h;
+        },
+
+        starsFun() {
+            const star = Math.ceil(this.film.vote_average) / 2
+            return star
         }
     }
 }
@@ -94,9 +84,6 @@ export default {
 
 <style scoped lang="scss">
 div {
-    i {
-        color: yellow;
-    }
     h6, span {
         text-transform: capitalize;
     }
