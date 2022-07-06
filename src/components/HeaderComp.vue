@@ -17,6 +17,7 @@
 
         <div class="d-flex">
             <input type="text" v-model="querySon" @keydown.enter.prevent="$emit('queryFunSon', querySon)">
+            <!-- emit per portare una funz da padre a figlio -->
             <button @click.prevent="$emit('queryFunSon', querySon)" type="button" class="btn btn-danger mx-3">cerca</button>
         </div>
     </div>

@@ -26,6 +26,7 @@ import SerieSub from './subFolder/SerieSub.vue';
 
 export default {
     name: 'MainComp',
+    //props per portare info dal figlio al padre
     props: {
         querySaveArrayMovies: Array,
         querySaveArraySeries: Array,
